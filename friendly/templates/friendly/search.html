@@ -1,0 +1,145 @@
+
+{% extends 'base.html' %}
+
+{% block search %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <p class="lead"><h4>{{ leeftijd }} ploegen vrij op {{ datum }}, klik op "prov" om de ploegen te zien per provintie:</h4> </p><br>
+        </div>
+    </div>
+</div> 
+<p></p>
+<div class="container">
+    <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">{{leeftijd}} prov Antwerpen</a>
+                </h4>
+            </div>                        
+            <div id="collapse1" class="panel-collapse collapse">
+                <div class="panel-body">
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Competitie</th>
+                                <th>Ploeg</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for key, value in antwerpen %}
+    	
+                                {% for x in value %}
+        	                       <tr>
+        	                           <td> {{ key }} </td>
+        	                           <td> {{ x }} </td>
+        	                       </tr>
+                                {% endfor %}
+    	
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">{{leeftijd}} prov Brabant</a>
+                </h4>
+            </div>                        
+            <div id="collapse2" class="panel-collapse collapse">
+                <div class="panel-body">
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Competitie</th>
+                                <th>Ploeg</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for key, value in brabant %}
+        
+                                {% for x in value %}
+                                   <tr>
+                                       <td> {{ key }} </td>
+                                       <td> {{ x }} </td>
+                                   </tr>
+                                {% endfor %}
+        
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">{{leeftijd}} prov Limburg</a>
+                </h4>
+            </div>                        
+            <div id="collapse3" class="panel-collapse collapse">
+                <div class="panel-body">
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Competitie</th>
+                                <th>Ploeg</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for key, value in limburg %}
+        
+                                {% for x in value %}
+                                   <tr>
+                                       <td> {{ key }} </td>
+                                       <td> {{ x }} </td>
+                                   </tr>
+                                {% endfor %}
+        
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">{{leeftijd}} prov Oost Vlaanderen</a>
+                </h4>
+            </div>                        
+            <div id="collapse4" class="panel-collapse collapse">
+                <div class="panel-body">
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Competitie</th>
+                                <th>Ploeg</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for key, value in oostvlaanderen %}
+        
+                                {% for x in value %}
+                                   <tr>
+                                       <td> {{ key }} </td>
+                                       <td> {{ x }} </td>
+                                   </tr>
+                                {% endfor %}
+        
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
