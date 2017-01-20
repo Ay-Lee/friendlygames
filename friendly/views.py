@@ -7,6 +7,7 @@ from django.http import HttpResponseRedirect
 from .forms import IFriendlyForm
 import os
 import sys
+import datetime
 import myfunctions
 # Create your views here.
 
@@ -20,11 +21,17 @@ def index(request):
 			prov2 = "limburg"
 			prov3 = "brabant"
 			prov4 = "ovlaanderen"
+			dag,mnd,yr = datum.split("/")
+			wd = datetime.datetime.strptime(datum, "%d/%m/%Y").weekday()
 			responseant = myfunctions.searchteam(leeftijd, prov1, datum)
 			responselim = myfunctions.searchteam(leeftijd, prov2, datum)
 			responsebra = myfunctions.searchteam(leeftijd, prov3, datum)
 			responseovl = myfunctions.searchteam(leeftijd, prov4, datum)
-			return render_to_response('search.html', {'antwerpen': responseant.items(), 'limburg': responselim.items(), 'brabant': responsebra.items(),'oostvlaanderen': responseovl.items(), 'datum': datum, 'leeftijd': leeftijd})
+			if (wd == 5 or wd==6):
+				stext = leeftijd + "ploegen vrij in het weekend van " + datum + ", klik op ""prov"" om de ploegen te zien per provincie:"
+			else:	
+				stext = leeftijd + " ploegen vrij op " + datum + ", klik op ""prov"" om de ploegen te zien per provincie:"
+			return render_to_response('search.html', {'antwerpen': responseant.items(), 'limburg': responselim.items(), 'brabant': responsebra.items(),'oostvlaanderen': responseovl.items(), 'datum': datum, 'leeftijd': leeftijd, 'text':stext})	
 	else:
 		form = IFriendlyForm()
 	return render(request, 'index.html', {'form': form})

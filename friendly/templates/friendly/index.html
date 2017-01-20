@@ -2,11 +2,29 @@
 {% extends 'base.html' %}
 
 {% block index %}
-	<P></p><br>
-	<form action="" method="post" class="form">
-    	{% csrf_token %}
-    	{{ form}}
-    	<input type="submit" value="Zoek" />
-	</form>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 text-center" style="background-color:#ffd54f;">
+				<p><br>Welkom op de site van 4teams/friendly-games, kies een leeftijd groep, geef een datum op en klik op zoek ...<br>
+				Als resultaat krijg je alle (gewestelijke) voetbal ploegen per provincie die geen officiele competitie wedstrijd spelen
+				</p>
+			</div>
+
+		</div>
+
+        <div class="row">
+            <div class="col-lg-12 text-center">
+            	<P></p><br>
+            	<form action="" method="post" class="form">
+    				{% csrf_token %}
+    				{{ form}}
+    				<input type="submit" value="Zoek" />
+				</form>
+
+            </div>
+        </div>
+        <!-- /.row -->
+    </div>
+
 {% endblock %}
  
