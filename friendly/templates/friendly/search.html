@@ -141,6 +141,38 @@
                 </div>
             </div>
         </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">{{leeftijd}} Nationaal & Inter Provinciaal</a>
+                </h4>
+            </div>                        
+            <div id="collapse5" class="panel-collapse collapse">
+                <div class="panel-body">
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Competitie</th>
+                                <th>Ploeg</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for key, value in nationaal %}
+        
+                                {% for x in value %}
+                                   <tr>
+                                       <td> {{ key }} </td>
+                                       <td> {{ x }} </td>
+                                   </tr>
+                                {% endfor %}
+        
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <div class="container">

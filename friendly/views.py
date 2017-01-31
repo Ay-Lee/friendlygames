@@ -21,17 +21,19 @@ def index(request):
 			prov2 = "limburg"
 			prov3 = "brabant"
 			prov4 = "ovlaanderen"
+			prov5 = "nationaal"
 			dag,mnd,yr = datum.split("/")
 			wd = datetime.datetime.strptime(datum, "%d/%m/%Y").weekday()
 			responseant = myfunctions.searchteam(leeftijd, prov1, datum)
 			responselim = myfunctions.searchteam(leeftijd, prov2, datum)
 			responsebra = myfunctions.searchteam(leeftijd, prov3, datum)
 			responseovl = myfunctions.searchteam(leeftijd, prov4, datum)
+			responsenat = myfunctions.searchteam(leeftijd, prov5, datum)
 			if (wd == 5 or wd==6):
-				stext = leeftijd + "ploegen vrij in het weekend van " + datum + ", klik op ""prov"" om de ploegen te zien per provincie:"
+				stext = leeftijd + " ploegen vrij in het weekend van " + datum + ", klik op ""prov"" om de ploegen te zien per provincie:"
 			else:	
 				stext = leeftijd + " ploegen vrij op " + datum + ", klik op ""prov"" om de ploegen te zien per provincie:"
-			return render_to_response('search.html', {'antwerpen': responseant.items(), 'limburg': responselim.items(), 'brabant': responsebra.items(),'oostvlaanderen': responseovl.items(), 'datum': datum, 'leeftijd': leeftijd, 'text':stext})	
+			return render_to_response('search.html', {'antwerpen': responseant.items(), 'limburg': responselim.items(), 'brabant': responsebra.items(),'oostvlaanderen': responseovl.items(), 'nationaal': responsenat.items(), 'datum': datum, 'leeftijd': leeftijd, 'text':stext})	
 	else:
 		form = IFriendlyForm()
 	return render(request, 'index.html', {'form': form})
