@@ -30,7 +30,7 @@ def index(request):
 			responseovl = myfunctions.searchteam(leeftijd, prov4, datum)
 			responsenat = myfunctions.searchteam(leeftijd, prov5, datum)
 			if (wd == 5 or wd==6):
-				stext = leeftijd + " ploegen vrij in het weekend van " + datum + ", klik op ""prov"" om de ploegen te zien per provincie:"
+				stext = leeftijd + " ploegen vrij in het weekend van " + datum + ", klik om de ploegen te zien:"
 			else:	
 				stext = leeftijd + " ploegen vrij op " + datum + ", klik op ""prov"" om de ploegen te zien per provincie:"
 			return render_to_response('search.html', {'antwerpen': responseant.items(), 'limburg': responselim.items(), 'brabant': responsebra.items(),'oostvlaanderen': responseovl.items(), 'nationaal': responsenat.items(), 'datum': datum, 'leeftijd': leeftijd, 'text':stext})	
@@ -39,6 +39,8 @@ def index(request):
 	return render(request, 'index.html', {'form': form})
 
 
+def about(request):
+	return render_to_response('about.html')
 def freeteam(request):
 	return HttpResponse("nothing here")
 
