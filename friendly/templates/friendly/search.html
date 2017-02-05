@@ -4,14 +4,19 @@
 {% block search %}
 <div class="container">
     <div class="row">
-        <div class="col-lg-12 text-center">
+        <div class="col-lg-2 "></div>
+        <div class="col-lg-8" style="background-color:#fafafa;">
           <!--  <p class="lead"><h4>{{ leeftijd }} ploegen vrij op {{ datum }}, klik op "prov" om de ploegen te zien per provincie:</h4> </p><br>-->
             <p class="lead"><h4>{{text}}</h4></p><br>
         </div>
+        <div class="col-lg-2"></div>
     </div>
 </div> 
 <p></p>
 <div class="container">
+    <div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8">
     <div class="panel-group" id="accordion">
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -22,7 +27,7 @@
             <div id="collapse1" class="panel-collapse collapse">
                 <div class="panel-body">
 
-                    <table class="table">
+                    <table class="table table-hover">
                         <thead>
                             <tr>
                                 <th>Competitie</th>
@@ -54,7 +59,7 @@
             <div id="collapse2" class="panel-collapse collapse">
                 <div class="panel-body">
 
-                    <table class="table">
+                    <table class="table table-hover">
                         <thead>
                             <tr>
                                 <th>Competitie</th>
@@ -86,7 +91,7 @@
             <div id="collapse3" class="panel-collapse collapse">
                 <div class="panel-body">
 
-                    <table class="table">
+                    <table class="table table-hover">
                         <thead>
                             <tr>
                                 <th>Competitie</th>
@@ -118,7 +123,7 @@
             <div id="collapse4" class="panel-collapse collapse">
                 <div class="panel-body">
 
-                    <table class="table">
+                    <table class="table table-hover">
                         <thead>
                             <tr>
                                 <th>Competitie</th>
@@ -144,13 +149,45 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">{{leeftijd}} Nationaal & Inter Provinciaal</a>
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">{{leeftijd}} West Vlaanderen</a>
                 </h4>
             </div>                        
             <div id="collapse5" class="panel-collapse collapse">
                 <div class="panel-body">
 
-                    <table class="table">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Competitie</th>
+                                <th>Ploeg</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for key, value in westvlaanderen %}
+        
+                                {% for x in value %}
+                                   <tr>
+                                       <td> {{ key }} </td>
+                                       <td> {{ x }} </td>
+                                   </tr>
+                                {% endfor %}
+        
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse6">{{leeftijd}} Nationaal & Inter Provinciaal</a>
+                </h4>
+            </div>                        
+            <div id="collapse6" class="panel-collapse collapse">
+                <div class="panel-body">
+
+                    <table class="table table-hover">
                         <thead>
                             <tr>
                                 <th>Competitie</th>
@@ -174,6 +211,9 @@
             </div>
         </div>
     </div>
+</div>
+</div>
+<div class="col-lg-2"></div>
 </div>
 <div class="container">
     <div class="row">

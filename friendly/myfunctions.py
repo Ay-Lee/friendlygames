@@ -96,6 +96,7 @@ def searchteam(leeftijd, provintie, datum):
 	FILENAMELIM = "inputcsv/limresdownP.csv"
 	FILENAMEBRA = "inputcsv/braresdownP.csv"
 	FILENAMEOVL = "inputcsv/ovlresdownP.csv"
+	FILENAMEWVL = "inputcsv/wvlresdownP.csv"
 	FILENAMENAT = "inputcsv/natresdownP.csv"
 
 	#REGEX per Prov - per leeftijd
@@ -109,6 +110,7 @@ def searchteam(leeftijd, provintie, datum):
 	RU11ANT = '^[^G]11'
 	RU12ANT = '^.12'
 	RU13ANT = '^([^G]13|13)'
+	RU14ANT = '^14'
 	RU15ANT = '^([^G]15|15)'
 	RU17ANT = '^([^G]17|17)'
 
@@ -122,6 +124,7 @@ def searchteam(leeftijd, provintie, datum):
 	RU11LIM = '^11'
 	RU12LIM = '^([^U]12|12)'
 	RU13LIM = '^([^U]13|13)'
+	RU14LIM = '^14'
 	RU15LIM = '^([^U]15|15)'
 	RU17LIM = '^([^U]17|15)'
 
@@ -135,6 +138,7 @@ def searchteam(leeftijd, provintie, datum):
 	RU11BRA ='^N11'
 	RU12BRA ='^N12'
 	RU13BRA ='^N13'
+	RU14BRA ='^14'
 	RU15BRA ='^N15'
 	RU17BRA ='^N17'
 
@@ -149,8 +153,23 @@ def searchteam(leeftijd, provintie, datum):
 	RU11OVL = '^11([A-Z])'
 	RU12OVL = '^12([A-Z])'
 	RU13OVL = '^13([A-Z])'
+	RU14OVL = '^14'
 	RU15OVL = '^15([A-Z])'
 	RU17OVL = '^17([A-Z])'
+
+	### West Vlaanderen ###
+
+	RU6WVL = '^2/([A-Z])U6' 
+	RU7WVL = '^2/([A-Z])U7' 
+	RU8WVL = '^2/([A-Z])U8' 
+	RU9WVL = '^2/([A-Z])U9'
+	RU10WVL = '^2/([A-Z])U10'
+	RU11WVL = '^2/([A-Z])U11'
+	RU12WVL = '^2/([A-Z])U12'
+	RU13WVL = '^2/([A-Z])U13'
+	RU14WVL = '^14'
+	RU15WVL = '^2/([A-Z])U15'
+	RU17WVL = '^2/([A-Z])U17'
 
 	### Nationaal + Inter provenciaal
 
@@ -162,6 +181,7 @@ def searchteam(leeftijd, provintie, datum):
 	RU11NAT = '^([^A-Z]11|11)'
 	RU12NAT = '^([^A-Z]12|12)'
 	RU13NAT = '^([^A-Z]13|13)'
+	RU14NAT = '^([^A-Z]14|14)'
 	RU15NAT = '^([^A-Z]15|15)'
 	RU17NAT = '^([^A-Z]17|17)'
 
@@ -171,60 +191,77 @@ def searchteam(leeftijd, provintie, datum):
 		researchlim = RU6LIM
 		researchbra = RU6BRA
 		researchovl = RU6OVL
+		researchwvl = RU6WVL
 		researchnat = RU6NAT
 	elif leeftijd == 'U7':
 		researchant = RU7ANT
 		researchlim = RU7LIM
 		researchbra = RU7BRA
 		researchovl = RU7OVL
+		researchwvl = RU7WVL
 		researchnat = RU7NAT
 	elif leeftijd == 'U8':
 		researchant = RU8ANT
 		researchlim = RU8LIM
 		researchbra = RU8BRA
 		researchovl = RU8OVL
+		researchwvl = RU8WVL
 		researchnat = RU8NAT
 	elif leeftijd == 'U9':
 		researchant = RU9ANT
 		researchlim = RU9LIM
 		researchbra = RU9BRA
 		researchovl = RU9OVL
+		researchwvl = RU9WVL
 		researchnat = RU9NAT
 	elif leeftijd == 'U10':
 		researchant = RU10ANT
 		researchlim = RU10LIM
 		researchbra = RU10BRA
 		researchovl = RU10OVL
+		researchwvl = RU10WVL
 		researchnat = RU10NAT
 	elif leeftijd == 'U11':
 		researchant = RU11ANT
 		researchlim = RU11LIM
 		researchbra = RU11BRA
 		researchovl = RU11OVL
+		researchwvl = RU11WVL
 		researchnat = RU11NAT
 	elif leeftijd == 'U12':
 		researchant = RU12ANT
 		researchlim = RU12LIM
 		researchbra = RU12BRA
 		researchovl = RU12OVL
+		researchwvl = RU12WVL
 		researchnat = RU12NAT
 	elif leeftijd == 'U13':
 		researchant = RU13ANT
 		researchlim = RU13LIM
 		researchbra = RU13BRA
 		researchovl = RU13OVL
+		researchwvl = RU13WVL
 		researchnat = RU13NAT
+	elif leeftijd == 'U14':
+		researchant = RU14ANT
+		researchlim = RU14LIM
+		researchbra = RU14BRA
+		researchovl = RU14OVL
+		researchwvl = RU14WVL
+		researchnat = RU14NAT
 	elif leeftijd == 'U15':
 		researchant = RU15ANT
 		researchlim = RU15LIM
 		researchbra = RU15BRA
 		researchovl = RU15OVL
+		researchwvl = RU15WVL
 		researchnat = RU15NAT
 	elif leeftijd == 'U17':
 		researchant = RU17ANT
 		researchlim = RU17LIM
 		researchbra = RU17BRA
 		researchovl = RU17OVL
+		researchwvl = RU17WVL
 		researchnat = RU17NAT
 	else: 
 		return
@@ -254,6 +291,10 @@ def searchteam(leeftijd, provintie, datum):
 		raw_data_ovl = get_data(FILENAMEOVL)
 		compdicovl = get_compdic(raw_data_ovl,seiz_deel)
 		returndic = loop_dic(compdicovl, researchovl, datum)
+	elif provintie == "wvlaanderen":
+		raw_data_wvl = get_data(FILENAMEWVL)
+		compdicwvl = get_compdic(raw_data_wvl,seiz_deel)
+		returndic = loop_dic(compdicwvl, researchwvl, datum)
 	elif provintie == "nationaal":
 		raw_data_nat = get_data(FILENAMENAT)
 		compdicnat = get_compdic(raw_data_nat,seiz_deel)
